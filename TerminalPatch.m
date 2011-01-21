@@ -87,12 +87,16 @@
 }
 
 + (void) cdSameDir:(void (^)())block {
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
 	NSString *dir = [self frontmostShellWorkingDir];
 	NSString *command = [@" printf %b \\\\ec && cd " stringByAppendingString:[dir escapedFilename]];
 
 	block();
 
 	[[self frontmostShell] writeData:[[command stringByAppendingString:@"\r"] dataUsingEncoding:NSUTF8StringEncoding]];
+
+	[pool drain];
 }
 
 + (void) newWindowHere:(id)sender {
