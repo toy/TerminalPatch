@@ -33,11 +33,13 @@
 + (void) load {
 	NSMenu *shellMenu = [[[NSApp mainMenu] itemWithTitle:@"Shell"] submenu];
 
-	NSMenuItem *newWindowHereItem = [shellMenu addItemWithTitle:@"New Window Here" action:@selector(newWindowHere:) keyEquivalent:@"n"];
+	NSUInteger newWindowIndex = [shellMenu indexOfItemWithTitle:@"New Window"];
+	NSMenuItem *newWindowHereItem = [shellMenu insertItemWithTitle:@"New Window Here" action:@selector(newWindowHere:) keyEquivalent:@"n" atIndex:newWindowIndex + 1];
 	[newWindowHereItem setTarget:self];
 	[newWindowHereItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask];
 
-	NSMenuItem *newTabHereItem = [shellMenu addItemWithTitle:@"New Tab Here" action:@selector(newTabHere:) keyEquivalent:@"t"];
+	NSUInteger newTabIndex = [shellMenu indexOfItemWithTitle:@"New Tab"];
+	NSMenuItem *newTabHereItem = [shellMenu insertItemWithTitle:@"New Tab Here" action:@selector(newTabHere:) keyEquivalent:@"t" atIndex:newTabIndex + 1];
 	[newTabHereItem setTarget:self];
 	[newTabHereItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask];
 
