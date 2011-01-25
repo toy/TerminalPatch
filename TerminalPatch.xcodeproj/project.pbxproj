@@ -96,7 +96,8 @@
 			buildPhases = (
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
-				B25C152712E7D6BB00FD0513 /* ShellScript */,
+				B2FE66CD12EEE45F00D1B68F /* Create link to Plugins dir */,
+				B25C152712E7D6BB00FD0513 /* Restart Terminal */,
 			);
 			buildRules = (
 			);
@@ -126,18 +127,33 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B25C152712E7D6BB00FD0513 /* ShellScript */ = {
+		B25C152712E7D6BB00FD0513 /* Restart Terminal */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Restart Terminal";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/osascript;
 			shellScript = "tell application \"Terminal\" to quit\ntell application \"Console\" to activate\ndo shell script \"open /Applications/Utilities/Terminal.app\"";
+		};
+		B2FE66CD12EEE45F00D1B68F /* Create link to Plugins dir */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create link to Plugins dir";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -nfs \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\" ~/Library/Application\\ Support/SIMBL/Plugins/\"$FULL_PRODUCT_NAME\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
