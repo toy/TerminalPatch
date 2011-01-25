@@ -139,7 +139,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/osascript;
-			shellScript = "tell application \"Terminal\" to quit\ntell application \"Console\" to activate\ndo shell script \"open /Applications/Utilities/Terminal.app\"";
+			shellScript = "tell application \"Terminal\" to quit\ntell application \"Console\" to activate\ndo shell script \"open -b com.apple.Terminal\"";
 		};
 		B2FE66CD12EEE45F00D1B68F /* Create link to Plugins dir */ = {
 			isa = PBXShellScriptBuildPhase;
