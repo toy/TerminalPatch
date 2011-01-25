@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define LOG_PATCH_LOADED NSLog(@"%@ loaded", [self class])
+
 @interface NSString (Terminal)
 
 - (id) escapedFilename;
@@ -54,39 +56,3 @@
 + (void) newTabHere:(id)sender;
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
