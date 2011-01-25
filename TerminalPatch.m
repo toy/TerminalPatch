@@ -43,7 +43,7 @@
 	[newTabHereItem setTarget:self];
 	[newTabHereItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask];
 
-	NSLog(@"TerminalPatch loaded");
+	NSLog(@"%@ loaded", [self class]);
 }
 
 + (TTShell *) frontmostShell {
