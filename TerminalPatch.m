@@ -31,6 +31,11 @@
 @implementation TerminalPatch
 
 + (void) load {
+	NSString *terminalPatchIconPath = [[NSBundle bundleForClass:[self class]] pathForImageResource:@"TerminalPatch"];
+	NSImage *terminalPatchIcon = [[NSImage alloc] initByReferencingFile:terminalPatchIconPath];
+	[NSApp setApplicationIconImage:terminalPatchIcon];
+	[terminalPatchIcon release];
+
 	NSMenu *shellMenu = [[[NSApp mainMenu] itemWithTitle:@"Shell"] submenu];
 
 	NSUInteger newWindowIndex = [shellMenu indexOfItemWithTitle:@"New Window"];
