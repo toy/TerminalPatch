@@ -12,6 +12,16 @@
 		B2FE6ECE12F19F2800D1B68F /* TerminalPatch.png in Copy Resources */ = {isa = PBXBuildFile; fileRef = B2FE6ECD12F19F2400D1B68F /* TerminalPatch.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B273491112F860A300B698BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B273490E12F8608600B698BC /* Increment build version */;
+			remoteInfo = "Increment build version";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		B2FE6ECC12F19F1C00D1B68F /* Copy Resources */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -106,6 +116,22 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		B273490E12F8608600B698BC /* Increment build version */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "rake build:increment";
+			buildConfigurationList = B273491312F860C100B698BC /* Build configuration list for PBXLegacyTarget "Increment build version" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/env;
+			dependencies = (
+			);
+			name = "Increment build version";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Increment build version";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		8D5B49AC048680CD000E48DA /* TerminalPatch */ = {
 			isa = PBXNativeTarget;
@@ -121,6 +147,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B273491212F860A300B698BC /* PBXTargetDependency */,
 			);
 			name = TerminalPatch;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -141,6 +168,7 @@
 			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* TerminalPatch */,
+				B273490E12F8608600B698BC /* Increment build version */,
 			);
 		};
 /* End PBXProject section */
@@ -158,7 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/osascript;
-			shellScript = "tell application \"Terminal\" to quit\ntell application \"Console\" to activate\ndo shell script \"open -b com.apple.Terminal\"";
+			shellScript = "if (system attribute \"NO_RESTART\") is equal to \"\" then\n\ttell application \"Terminal\" to quit\n\ttell application \"Console\" to activate\n\tdo shell script \"open -b com.apple.Terminal\"\nend if\n";
 		};
 		B2A6DB1312F24E6A00C5007F /* Set icon */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -201,6 +229,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B273491212F860A300B698BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B273490E12F8608600B698BC /* Increment build version */;
+			targetProxy = B273491112F860A300B698BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -232,6 +268,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TerminalPatch_Prefix.pch;
+				GCC_VERSION = 4.2;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
 				PRODUCT_NAME = TerminalPatch;
@@ -269,6 +306,27 @@
 			};
 			name = Release;
 		};
+		B273490F12F8608700B698BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Increment build version";
+			};
+			name = Debug;
+		};
+		B273491012F8608700B698BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Increment build version";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -286,6 +344,15 @@
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,
 				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B273491312F860C100B698BC /* Build configuration list for PBXLegacyTarget "Increment build version" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B273490F12F8608700B698BC /* Debug */,
+				B273491012F8608700B698BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
