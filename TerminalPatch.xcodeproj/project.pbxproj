@@ -17,7 +17,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B273490E12F8608600B698BC /* Increment build version */;
+			remoteGlobalIDString = B273490E12F8608600B698BC;
 			remoteInfo = "Increment build version";
 		};
 /* End PBXContainerItemProxy section */
@@ -186,7 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/osascript;
-			shellScript = "if (system attribute \"NO_RESTART\") is equal to \"\" then\n\ttell application \"Terminal\" to quit\n\ttell application \"Console\" to activate\n\tdo shell script \"open -b com.apple.Terminal\"\nend if\n";
+			shellScript = "set appName to \"Terminal\"\nif (system attribute \"NO_RESTART\") is equal to \"\" then\n\ttell application appName to quit\n\ttell application \"Console\" to activate\n\ttell application \"System Events\"\n\t\trepeat while (exists process appName)\n\t\t\tdelay 0.5\n\t\tend repeat\n\tend tell\n\ttell application appName to activate\nend if\n";
 		};
 		B2A6DB1312F24E6A00C5007F /* Set icon */ = {
 			isa = PBXShellScriptBuildPhase;
