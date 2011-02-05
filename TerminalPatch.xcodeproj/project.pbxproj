@@ -119,7 +119,7 @@
 /* Begin PBXLegacyTarget section */
 		B273490E12F8608600B698BC /* Increment build version */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "rake build:increment";
+			buildArgumentsString = "rake build_number:increment";
 			buildConfigurationList = B273491312F860C100B698BC /* Build configuration list for PBXLegacyTarget "Increment build version" */;
 			buildPhases = (
 			);
@@ -186,7 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/osascript;
-			shellScript = "set appName to \"Terminal\"\nif (system attribute \"NO_RESTART\") is equal to \"\" then\n\ttell application appName to quit\n\ttell application \"Console\" to activate\n\ttell application \"System Events\"\n\t\trepeat while (exists process appName)\n\t\t\tdelay 0.5\n\t\tend repeat\n\tend tell\n\ttell application appName to activate\nend if\n";
+			shellScript = "set appName to \"Terminal\"\nif (system attribute \"NO_RESTART\") is equal to \"\" then\n\ttell application appName to quit\n\ttell application \"Console\" to activate\n\ttell application \"System Events\"\n\t\trepeat while (exists process appName)\n\t\t\tdelay 0.1\n\t\tend repeat\n\tend tell\n\tdelay 0.5\n\ttell application appName to activate\nend if\n";
 		};
 		B2A6DB1312F24E6A00C5007F /* Set icon */ = {
 			isa = PBXShellScriptBuildPhase;
